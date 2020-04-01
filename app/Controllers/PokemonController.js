@@ -1,4 +1,5 @@
 import PokemonService from "../Services/PokemonService.js";
+import LineupPokemon from "../Models/LineupPokemon.js";
 import WildPokemon from "../Models/WildPokemon.js";
 import ActivePokemon from "../Models/ActivePokemon.js";
 import store from "../store.js";
@@ -9,14 +10,14 @@ function _drawWildPokemon() {
   let wildPokemon = store.State.wildPokemon;
   let randomPokemon = [];
   let template = "";
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 12; i++) {
     randomPokemon.push(
       wildPokemon[Math.floor(Math.random() * wildPokemon.length)]
     );
   }
   randomPokemon.forEach(
     pokemon =>
-      (template += `<button class="btn btn-primary m-2" onclick="app.pokemonController.displayDetails('${pokemon.name}')">${pokemon.name}</button>`)
+      (template += `<div class="col-3"><button class="btn btn-primary m-2" onclick="app.pokemonController.displayDetails('${pokemon.name}')">${pokemon.name}</button></div>`)
   );
   document.getElementById("wild-pokemon").innerHTML = template;
   console.log("5 random pokemon", randomPokemon);
@@ -50,5 +51,8 @@ export default class PokemonController {
   }
   catchPokemon() {
     PokemonService.catchPokemon();
+  }
+  releasePokemon(pokemonId) {
+    PokemonService.releasePokemon(pokemonId);
   }
 }

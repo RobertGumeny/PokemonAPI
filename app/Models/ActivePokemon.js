@@ -10,7 +10,7 @@ export default class ActivePokemon {
     <img src="${this.img}" alt="">
     <h5 class="text-capitalize">${this.name}</h5>
     <p>Weight: ${this.weight}</p>
-    <button class="btn btn-block btn-danger" onclick="app.pokemonController.catchPokemon()">Catch ${this.name}</button>
+    <button class="btn btn-block btn-danger text-capitalize" onclick="app.pokemonController.catchPokemon()">Catch ${this.name}</button>
     `;
   }
 }
