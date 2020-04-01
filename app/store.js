@@ -1,11 +1,14 @@
 import WildPokemon from "./Models/WildPokemon.js";
 import ActivePokemon from "./Models/ActivePokemon.js";
+import CaughtPokemon from "./Models/CaughtPokemon.js";
 
 let _state = {
   /** @type {WildPokemon[]} */
   wildPokemon: [],
   /** @type {ActivePokemon[]} */
-  activePokemon: []
+  activePokemon: [],
+  /** @type {CaughtPokemon[]} */
+  caughtPokemon: []
 };
 
 /** Collection of listeners to be called based on keyed state changes
@@ -13,7 +16,8 @@ let _state = {
  */
 let _listeners = {
   wildPokemon: [],
-  activePokemon: []
+  activePokemon: [],
+  caughtPokemon: []
 };
 
 //NOTE You should not need to change the code from this point down

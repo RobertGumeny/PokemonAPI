@@ -1,6 +1,7 @@
 import store from "../store.js";
 import WildPokemon from "../Models/WildPokemon.js";
 import ActivePokemon from "../Models/ActivePokemon.js";
+import CaughtPokemon from "../Models/CaughtPokemon.js";
 
 // Link up with APIs
 
@@ -19,6 +20,7 @@ class PokemonService {
   constructor() {
     console.log("Pokemon Service is linked");
     this.getWildPokemon();
+    this.getCaughtPokemon();
   }
 
   getWildPokemon() {
@@ -32,6 +34,21 @@ class PokemonService {
       console.log("details", res.data);
       let pokemon = new ActivePokemon(res.data);
       store.commit("activePokemon", pokemon);
+    });
+  }
+  catchPokemon() {
+    _sandboxApi.post("", store.State.activePokemon).then(res => {
+      console.log("caught pokemon", res.data);
+      this.getCaughtPokemon();
+    });
+  }
+  getCaughtPokemon() {
+    _sandboxApi.get().then(res => {
+      console.log("my pokemon", res.data.data);
+      let caughtPokemon = res.data.data.map(
+        pokemonRawData => new CaughtPokemon(pokemonRawData)
+      );
+      store.commit("caughtPokemon", caughtPokemon);
     });
   }
 }
