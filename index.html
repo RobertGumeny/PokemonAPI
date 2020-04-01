@@ -25,14 +25,29 @@
     </header>
     <!-- !SECTION End header-->
     <!-- SECTION Main content-->
-    <main class="bg-secondary">
+    <main class="bg-dark">
       <!-- SECTION Pokemon display row-->
       <div class="row">
         <!-- SECTION Wild pokemon display-->
-        <div class="col-4" id="wild-pokemon"></div>
+        <div class="col-4 text-center display-border">
+          <h4 class="text-primary">Wild Pokemon in area:</h4>
+          <div
+            class="d-flex flex-column align-items-center"
+            id="wild-pokemon"
+          ></div>
+          <button
+            class="btn btn-primary my-3"
+            onclick="app.pokemonController.getNewPokemon()"
+          >
+            Find New Pokemon
+          </button>
+        </div>
         <!-- !SECTION End wild pokemon-->
         <!-- SECTION Active Pokemon display-->
-        <div class="col-4" id="active-pokemon"></div>
+        <div
+          class="col-4 d-flex flex-column align-items-center text-white"
+          id="active-pokemon"
+        ></div>
         <!-- !SECTION End active pokemon-->
         <!-- SECTION Caught pokemon display-->
         <div class="col-4">

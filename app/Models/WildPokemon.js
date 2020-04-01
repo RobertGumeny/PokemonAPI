@@ -1,9 +1,13 @@
 export default class WildPokemon {
   constructor(data) {
-    this.title = data.title;
+    this.name = data.name || "";
+    this.img = data.sprites ? data.sprites.front_default || "" : data.img || "";
+    this.weight = data.weight || "";
   }
 
   get Template() {
-    return console.log("WildPokemon model is linked");
+    return /*html*/ `
+    
+    `;
   }
 }
